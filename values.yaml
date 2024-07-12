@@ -8,7 +8,7 @@ openvasVulnerabilityTests:
   replicas: 2
   image:
     repository: elysiansky/capstone-openvas-vulnerability-tests
-    tag: 8c0d7ae-amd64
+    tag: 053f5c5-amd64
   service:
     type: ClusterIP
   resources:
