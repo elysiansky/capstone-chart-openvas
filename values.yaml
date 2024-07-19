@@ -4,20 +4,11 @@
 
 replicaCount: 1
 
-openvasVulnerabilityTests:
-  replicas: 2
-  image:
-    repository: elysiansky/capstone-openvas-vulnerability-tests
-    tag: b2444b8-amd64
-  service:
-    type: ClusterIP
-  resources:
-    limits:
-      cpu: 100m
-      memory: 128Mi
-    requests:
-      cpu: 100m
-      memory: 128Mi
+image:
+  repository: elysiansky/capstone-openvas-vulnerability-tests
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: b728036-amd64
 
 imagePullSecrets: []
 nameOverride: ""
@@ -112,3 +103,23 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+
+openvasVulnerabilityTests:
+  env:
+    - name: PODSLEEP
+      value: 'no'
+  replicas: 2
+  image:
+    repository: elysiansky/capstone-openvas-vulnerability-tests
+    tag: b728036-amd64
+  service:
+    type: ClusterIP
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
