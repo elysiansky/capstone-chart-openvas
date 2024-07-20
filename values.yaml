@@ -106,9 +106,6 @@ affinity: {}
 
 
 openvasVulnerabilityTests:
-  env:
-    - name: PODSLEEP
-      value: 'no'
   replicas: 2
   image:
     repository: elysiansky/capstone-openvas-vulnerability-tests
